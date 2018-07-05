@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block main_content %}
+    {% if context.db %}
+        <h3>{{ context.title_block }}</h3>
+        {% for d in context.db %}
+            <div>
+                <a href="#">{{ d }}</a>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div>
+            You need to connect in a server for select your database.
+        </div>
+    {% endif %}
+{% endblock %}

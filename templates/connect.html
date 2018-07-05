@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{% block main_content %}
+    <h4>Welcome to Odoo Connection Page</h4>
+    <div class="row block-connect">
+        <form class="col s12" action="{{ url_for('check_connect') }}" method="post">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="host" type="text" name="host" required>
+                    <label for="host">Host</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="port" type="text" name="port" required>
+                    <label for="port">Port</label>
+                </div>
+                {% if context.uname %}
+                <div class="input-field col s6">
+                    <input id="username" type="text" name="username">
+                    <label for="username">Username</label>
+                </div>
+                {% endif %}
+                {% if context.upass %}
+                <div class="input-field col s6">
+                    <input id="password" type="password" name="password">
+                    <label for="password">Password</label>
+                </div>
+                {% endif %}
+                <input type="submit" value="Connect" class="btn" />
+            </div>
+        </form>
+    </div>
+{% endblock %}
